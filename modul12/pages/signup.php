@@ -1,4 +1,23 @@
-<?php include '../includes/header.php'; ?>
+<?php 
+    include '../includes/header.php'; 
+    include '../config/database.php';
+    if(isset($_POST['register'])){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+    
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (name, email, password)
+    VALUES ('$name', '$email', '$hashedPassword')";
+
+    if ($conn->query($sql)){
+        echo "Registration successful!";
+    }else{
+        echo "Error: " . $conn->error;
+    }
+    }
+    ?>
 
 <div class="container" mt-5>
     <h2>Sign Up</h2>

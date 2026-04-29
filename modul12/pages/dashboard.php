@@ -12,3 +12,4 @@ if(!isset($_SESSION['user'])){
 </div>
 
 <?php include '../includes/footer.php'; ?>
+

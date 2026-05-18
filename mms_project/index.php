@@ -18,7 +18,7 @@ if(isset($_POST['signup'])){
         $error = "Passwords do not match!";
     }
 }
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">

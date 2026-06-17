@@ -8,9 +8,11 @@ $error = "";
 
 if (isset($_POST["login"])) {
     $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
+    $email = isset($_POST["email"]) ? $_POST["email"] : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
+    $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
-    if ($username == "" || $password == "") {
+    if ($username == "" || $email == "" || $password == "" || $confirm_password == "") {
         $error = "Please enter your username and password.";
     } else {
         $username_sql = mysqli_real_escape_string($conn, $username);
@@ -29,13 +31,7 @@ if (isset($_POST["login"])) {
         if ($user && $password_is_correct) {
             $_SESSION["user_id"] = (int) $user["id"];
             $_SESSION["username"] = $user["username"];
-            $_SESSION["is_admin"] = (int) $user["is_admin"];
-
-            if ((int) $user["is_admin"] == 1) {
-                redirect_to("admin/dashboard.php");
-            }
-
-            redirect_to("dashboard.php");
+        redirect_to("dashboard.php");
         } else {
             $error = "Invalid username or password.";
         }

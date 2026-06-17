@@ -1,11 +1,12 @@
 <?php
-require_once __DIR__ . "personal_project/config.php";
-require_once __DIR__ . "personal_project/helpers.php";
+require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/helpers.php";
 
-$name = "";
-$username = "";
+$name = "localhost";
+$username = "root";
 $email = "";
 $error = "";
+$database = "personal_project";
 
 if (isset($_POST["signup"])) {
     $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
@@ -25,7 +26,7 @@ if (isset($_POST["signup"])) {
         $username_sql = mysqli_real_escape_string($conn, $username);
         $email_sql = mysqli_real_escape_string($conn, $email);
 
-        $sql = "SELECT * FROM users WHERE username = '$username_sql' OR email = '$email_sql'";
+        $sql = "SELECT * FROM user WHERE username = '$username_sql' OR email = '$email_sql'";
         $existing_user = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($existing_user) > 0) {
@@ -34,8 +35,8 @@ if (isset($_POST["signup"])) {
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
             $password_sql = mysqli_real_escape_string($conn, $password_hash);
 
-            $sql = "INSERT INTO users (name, username, email, password, confirm_password, is_admin)
-                    VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', '$password_sql', 0)";
+            $sql = "INSERT INTO users (name, username, email, password, confirm_password)
+                    VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', '$confirm_password_sql', 0)";
             mysqli_query($conn, $sql);
 
             redirect_to("login.php");

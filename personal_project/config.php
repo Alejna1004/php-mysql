@@ -1,10 +1,11 @@
+
 <?php
 $name = "localhost";
 $username = "root";
-$email = "";
-$password = "localhost";
+$password = "";
+$database = "personal_project";
 
-$conn = mysqli_connect($name, $username, $email, $password, $database);
+$conn = mysqli_connect($name, $username, $password, $database);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

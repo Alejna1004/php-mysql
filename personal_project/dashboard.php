@@ -44,7 +44,6 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
         <a href="dashboard.php" class="btn btn-light btn-sm me-2">Dashboard</a>
         <a href="books.php" class="btn btn-outline-light btn-sm me-2">Books</a>
         <span class="text-light me-3">Welcome, <?php echo safe_text($username); ?>!</span>
-        <a href="logout.php" class="btn btn-outline-light btn-sm">Logout</a>
     </div>
 </nav>
 
@@ -58,7 +57,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
     </div>
 
     <div class="row g-4">
-        <?php if (count($movies) == 0): ?>
+        <?php if (count($books) == 0): ?>
             <div class="col-12">
                 <div class="alert alert-info">No books are available right now.</div>
             </div>

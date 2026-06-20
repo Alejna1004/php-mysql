@@ -35,11 +35,11 @@ if (isset($_POST["signup"])) {
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
             $password_sql = mysqli_real_escape_string($conn, $password_hash);
 
-            $sql = "INSERT INTO users (name, username, email, password, confirm_password)
+            $sql = "INSERT INTO user (name, username, email, password, confirm_password)
                     VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', 0)";
             mysqli_query($conn, $sql);
 
-            redirect_to("dashboard.php");
+            redirect_to("books.php");
         }
     }
 }

@@ -41,7 +41,7 @@
             <li class="list-group-item">Price <h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary"><a href="buy.php">Buy now</a></button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
             <li class="list-group-item">Price<h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary">Buy now</button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 
@@ -71,7 +71,7 @@
             <li class="list-group-item">Price<h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary">Buy now</button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 
@@ -86,7 +86,7 @@
             <li class="list-group-item">Price<h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary">Buy now</button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 
@@ -101,7 +101,7 @@
             <li class="list-group-item">Price<h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary">Buy now</button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 
@@ -116,7 +116,7 @@
             <li class="list-group-item">Price<h5>14,95€</h5></li>
         </ul>
         <div class="card-body">
-            <button href="buy.php" type="button" class="btn btn-primary">Buy now</button>
+            <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="buy.php">Buy now</a></button>
         </div>
     </div>
 

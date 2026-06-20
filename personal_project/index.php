@@ -1,50 +1,54 @@
 <?php
+session_start();
 require_once __DIR__ . "/config.php";
 require_once __DIR__ . "/helpers.php";
 
-$name = "localhost";
-$username = "root";
+$name = "";
+$username = "";
 $email = "";
 $error = "";
 $database = "personal_project";
 
-if (isset($_POST["signup"])) {
+if(isset($_POST["signup"])){
     $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
     $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
     $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
-    if ($name == "" || $username == "" || $email == "" || $password == "" || $confirm_password == "") {
+    if($name == "" || $username == "" || $email = "" || $password = "" || $confirm_password = ""){
         $error = "Please fill in all fields.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Please enter a valid email address.";
-    } elseif ($password != $confirm_password) {
+    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error = "Please enter a valid email address";
+    }elseif($password != $confirm_password) {
         $error = "Passwords do not match.";
-    } else {
+    } else{
         $name_sql = mysqli_real_escape_string($conn, $name);
         $username_sql = mysqli_real_escape_string($conn, $username);
         $email_sql = mysqli_real_escape_string($conn, $email);
+    }
 
-        $sql = "SELECT * FROM user WHERE username = '$username_sql' OR email = '$email_sql'";
+    $sql = "SELECT * FROM user WHERE username = '$username_sql' OR email = '$email_sql'";
         $existing_user = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($existing_user) > 0) {
+    
+    if (mysqli_num_rows($existing_user) > 0) {
             $error = "Username or email is already registered.";
         } else {
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
             $password_sql = mysqli_real_escape_string($conn, $password_hash);
-
+            
             $sql = "INSERT INTO user (name, username, email, password, confirm_password)
                     VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', 0)";
             mysqli_query($conn, $sql);
 
-            redirect_to("books.php");
+            $user_id = mysqli_insert_id($conn);
+            $_SESSION["user_id"] = $user_id;
+            $_SESSION["username"] = $username;
+
+            redirect_to("dashboard.php");
         }
-    }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

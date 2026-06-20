@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])) {
 $username = isset($_SESSION["username"]) ? $_SESSION["username"] : "User";
 
 $books = [];
-$result = mysqli_query($conn, "SELECT * FROM books ORDER BY id");
+$result = mysqli_query($conn, "SELECT * FROM user ORDER BY id");
 
 while ($row = mysqli_fetch_assoc($result)) {
     $books[] = $row;
@@ -42,7 +42,6 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
     <span class="navbar-brand">HeartStudios Library</span>
     <div>
         <a href="dashboard.php" class="btn btn-light btn-sm me-2">Dashboard</a>
-        <a href="books.php" class="btn btn-outline-light btn-sm me-2">Books</a>
         <span class="text-light me-3">Welcome, <?php echo safe_text($username); ?>!</span>
     </div>
 </nav>
@@ -52,8 +51,7 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
     <p class="text-muted">You are logged in as a regular user</p>
 
     <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
-        <h4 class="mb-0">Books</h4>
-        <a href="my_bookings.php" class="btn btn-outline-primary btn-sm">My Bookings</a>
+        <button href="buy.php" type="button" class="btn btn-info"><a class="link-offset-2 link-underline link-underline-opacity-0" href="books.php">Books</a></button>
     </div>
 
     <div class="row g-4">
@@ -83,6 +81,8 @@ https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css
 </div>
 
 <?php render_footer(); ?>
+
+
 
 <script src="
 https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js

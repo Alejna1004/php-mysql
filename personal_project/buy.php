@@ -113,7 +113,7 @@ button:hover{
         <textarea name="address" required></textarea>
 
         <button type="submit">
-            Buy Now
+            <a href="books.php">Buy Now</a>
         </button>
 
     </form>

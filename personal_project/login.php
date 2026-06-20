@@ -12,12 +12,12 @@ if (isset($_POST["login"])) {
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
-    if ($username == "" || $email == "" || $password == "" || $confirm_password == "") {
+    if ($username == "" || $password == "") {
         $error = "Please enter your username and password.";
     } else {
         $username_sql = mysqli_real_escape_string($conn, $username);
 
-        $sql = "SELECT * FROM users WHERE username = '$username_sql'";
+        $sql = "SELECT * FROM user  WHERE username = '$username_sql'";
         $result = mysqli_query($conn, $sql);
         $user = mysqli_fetch_assoc($result);
 

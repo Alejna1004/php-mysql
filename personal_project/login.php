@@ -33,8 +33,7 @@ if (isset($_POST["login"])) {
             $_SESSION["username"] = $user["username"];
         redirect_to("dashboard.php");
         } else {
-            $error = "Invalid username or password.";
-        }
+            $error = "Invalid username or password.";}
     }
 }
 ?>

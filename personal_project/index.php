@@ -36,10 +36,10 @@ if (isset($_POST["signup"])) {
             $password_sql = mysqli_real_escape_string($conn, $password_hash);
 
             $sql = "INSERT INTO users (name, username, email, password, confirm_password)
-                    VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', '$confirm_password_sql', 0)";
+                    VALUES ('$name_sql', '$username_sql', '$email_sql', '$password_sql', 0)";
             mysqli_query($conn, $sql);
 
-            redirect_to("login.php");
+            redirect_to("dashboard.php");
         }
     }
 }
